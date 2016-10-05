@@ -15,7 +15,7 @@ On the following mocks, the arrow down symbol indicates that only as many as sho
 
 
 ### Homepage wireframe:
-![Homepage](readme-images/homepage.png)
+![Homepage](wireframes/homepage.png)
 
 Clicking on a genre's card will take you to that [genre's page](#genre-page)
 
@@ -23,7 +23,7 @@ Clicking on a movie's card will take you to that [movie's page](#movie-page)
 
 
 ### Movie Page
-![Movie Page](readme-images/movie-page.png)
+![Movie Page](wireframes/movie-page.png)
 
 Clicking on the movie's genre link will take you to that [genre's page](#genre-page)
 
@@ -34,19 +34,19 @@ Clicking on a review card will take you to that [review's page](#review-page)
 Filling in and submitting the form will create a new review for that movie.
 
 ### Actor Page
-![Actor Page](readme-images/actor-page.png)
+![Actor Page](wireframes/actor-page.png)
 
 Clicking on one of the actor's movie links will take you to that [movie's page](#movie-page)
 
 Clicking on a review card will take you to that [review's page](#review-page)
 
 ### Genre Page
-![Genre Page](readme-images/genre-page.png)
+![Genre Page](wireframes/genre-page.png)
 
 Clicking on a movie's card will take you to that [movie's page](#movie-page)
 
 ### User Page
-![User Page](readme-images/user-page.png)
+![User Page](wireframes/user-page.png)
 
 Clicking on a movie's card will take you to that [movie's page](#movie-page)
 
@@ -54,7 +54,7 @@ Clicking on a review card will take you to that [review's page](#review-page)
 
 
 ### Review Page
-![Review Page](readme-images/review-page.png)
+![Review Page](wireframes/review-page.png)
 
 Clicking on a movie/actor's card will take you to the page for that [movie](#movie-page) or [actor](#actor-page).
 
