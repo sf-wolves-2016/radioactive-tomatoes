@@ -15,7 +15,7 @@ On the following mocks, the arrow down symbol indicates that only as many as sho
 
 
 ### Homepage wireframe:
-![Homepage](wireframes/homepage.png)
+![Homepage](wireframes/home-page.png)
 
 Clicking on a genre's card will take you to that [genre's page](#genre-page)
 
