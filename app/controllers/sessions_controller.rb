@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to '/'
     else
+      flash[:error] = "Something doesn't add up! Check your email and password."
       redirect_to '/login'
     end
   end
