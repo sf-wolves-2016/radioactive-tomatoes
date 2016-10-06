@@ -11,10 +11,10 @@ query.movies.each do |m|
     end
     actors_list = response['Actors'].split(', ')
     actors_list.each do |a|
-      unless Actor.exists?(name: a)
+      if !Actor.exists?(name: a)
         Actor.create!(name: a)
-      end
         Role.create!(actor: Actor.find_by(name: a), movie: Movie.find_by(title: response['Title']))
+      end
     end
 end
 
