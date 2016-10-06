@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-  get 'users/create'
-
-  get 'movies/index'
-
-  get 'movies/show'
+  resources :reviews, except: [:new, :index]
 
   resources :movies, only: [:index, :show]
 
