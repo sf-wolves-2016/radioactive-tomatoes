@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20161005225351) do
     t.text     "synopsis"
     t.datetime "release_date"
     t.string   "movie_poster_url"
+    t.string   "genres"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
