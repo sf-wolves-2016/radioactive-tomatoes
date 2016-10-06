@@ -8,7 +8,7 @@
   <div class="container">
     <h3>Cast</h3>
     <% @movie.actors.each do |actor| %>
-      <p> <%= link_to(actor.name, "actors/#{actor.id}") %> </p>
+      <p> <%= link_to(actor.name, "/actors/#{actor.id}") %> </p>
     <% end %>
   </div>
   <div class="container">
