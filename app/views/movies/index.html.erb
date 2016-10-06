@@ -1,9 +1,19 @@
 <div class="jumbotron">
   <div class="container">
     <div class="jumbotron top-3-movies" style="background-color: lightblue">
-    <h1>TOP MOVIES</h1>
-    <p>...</p>
-    <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+      <div class="row">
+        <% @top.each do |movie| %>
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <h3 class="top-movie-title"><%= movie.title %></h3>
+              <img src=<%= movie.movie_poster_url %> alt="Poster not found...">
+              <div class="caption">
+                <p><%= movie.synopsis %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
