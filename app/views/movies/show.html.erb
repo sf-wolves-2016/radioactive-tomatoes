@@ -1,2 +1,17 @@
-<h1>Movies#show</h1>
-<p>Find me in app/views/movies/show.html.erb</p>
+<div class="jumbotron">
+  <div class="container">
+    <h1><%= @movie.title %></h1>
+    <%= image_tag("#{@movie.movie_poster_url}") %>
+    <h3>Synopsis</h3>
+    <p><%= @movie.synopsis %></p>
+  </div>
+  <div class="container">
+    <h3>Cast</h3>
+    <% @movie.actors.each do |actor| %>
+      <p> <%= link_to(actor.name, "actors/#{actor.id}") %> </p>
+    <% end %>
+  </div>
+  <div class="container">
+    <%=  %>
+  </div>
+</div>
