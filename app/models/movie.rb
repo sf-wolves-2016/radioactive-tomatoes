@@ -5,6 +5,12 @@ class Movie < ActiveRecord::Base
   validates :title, uniqueness: true
 
   def avg_rating
-    reviews.average(:rating)
+    avg = reviews.average(:rating)
+    avg ? avg : 0
   end
+
+  def self.top_movies
+    Movie.all.sort_by(&:avg_rating).reverse.first(3)
+  end
+
 end
