@@ -1,0 +1,31 @@
+<div class="movie-details-small">
+  <% if @review.actor? %>
+    <h1>
+      <%= @reviewable.title %>
+    </h1>
+  <% else %>
+    <h1>
+      <%= @reviewable.name %>
+    </h1>
+  <% end %>
+</div>
+
+<div class="reviewer-info">
+  <h1><%= @reviewer.username %></h1>
+</div>
+
+
+<div class="review-text">
+  <h1><%= @review.content %></h1>
+</div>
+
+
+<div class="top-comments">
+  <% @top_comments.each do |top_comment| %>
+    <div class="comment">
+      <%= top_comment.commenter.username %>
+      <br>
+      <%= top_comment.content %>
+    </div>
+  <% end %>
+</div>
