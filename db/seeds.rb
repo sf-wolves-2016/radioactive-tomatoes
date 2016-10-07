@@ -4,20 +4,30 @@ require 'awesome_print'
 require 'httparty'
 Tmdb::Api.key("62a053ad52b7e6cbdd773fafae4737db")
 
+def fetch_movie_data_from_list(movies)
+  movies.select do |m|
+    return false if Movie.exists?(title: m['Title'])
+    movie_id = Movie.create!(title: m['Title'],
+               synopsis: m['Plot'],
+           release_date: m['Released'],
+       movie_poster_url: m['Poster']
+    ).id
+
+    genres_list = m['Genre'].split(", ")
+    genres_list.each do |g|
+      genre_id = Genre.find_or_create_by(name: g).id
+      GenresMovie.create(movie_id: movie_id, genre_id: genre_id)
+    end
+  end
+end
+
 # get the data, write it to json file
 def fetch_movie_data_and_cache_in_json_files
   query = Imdb::Top250.new
   movies = query.movies.map do |m|
     HTTParty.get("http://www.omdbapi.com/?i=tt#{m.id}&plot=short&r=json")
   end
-  movies.select do |m|
-    return false if Movie.exists?(title: m['Title'])
-    Movie.create!(title: m['Title'],
-               synopsis: m['Plot'],
-           release_date: m['Released'],
-       movie_poster_url: m['Poster']
-    )
-  end
+  movies = fetch_movie_data_from_list
   File.open('db/data/movie_data.json', 'w') { |file| file.write(movies.to_json) }
 end
 
@@ -71,14 +81,7 @@ def fetch_data_and_cache_in_json_files
 end
 
 def get_movie_actor_and_role_data_from_json_files
-  JSON.parse(File.read('db/data/movie_data.json')).each do |m|
-    next if Movie.exists?(title: m['Title'])
-    Movie.create!(title: m['Title'],
-               synopsis: m['Plot'],
-           release_date: m['Released'],
-       movie_poster_url: m['Poster']
-    )
-  end
+  fetch_movie_data_from_list(JSON.parse(File.read('db/data/movie_data.json')))
 
   JSON.parse(File.read('db/data/actor_data.json')).each do |a|
     next if Actor.exists?(name: a['name'])

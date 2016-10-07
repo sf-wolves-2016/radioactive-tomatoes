@@ -1,0 +1,11 @@
+<div class="col-sm-6 col-md-4 clickable-card">
+  <%= link_to movie_path(movie.id) do %>
+    <div class="thumbnail">
+      <h3 class="top-movie-title"><%= movie.title %></h3>
+      <%= image_tag("#{movie.movie_poster_url}", alt: "Poster not found...") %>
+      <div class="caption">
+        <p><%= movie.synopsis %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
