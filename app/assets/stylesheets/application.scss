@@ -101,7 +101,24 @@ iframe {
 }
 
 #rating-form * {
-  vertical-align: middle;
   border-radius: 5px;
+}
+
+#rating-form input[type="text"] {
+  float: right;
   margin: 1%;
+  width: 60%;
+}
+
+#rating-form textarea {
+  float: right;
+  margin: 0 1%;
+  width: 60%;
+  height: 50%;
+}
+
+#rating-form input[type="submit"] {
+  float: left;
+  margin-top: 5%;
+  width: 30%;
 }
