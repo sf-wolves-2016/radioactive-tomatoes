@@ -42,8 +42,7 @@ def fetch_actor_and_role_data_and_cache_in_json_files
   actors = []
   roles = []
 
-  movies = JSON.parse(File.read('db/data/movie_data.json'))
-  movies.each do |response|
+  JSON.parse(File.read('db/data/movie_data.json')).each do |response|
     actors_list = response['Actors'].split(', ')
     actors_list.each do |a|
       actor = {name: a}
@@ -95,7 +94,6 @@ end
 
 # fetch_data_and_cache_in_json_files
 get_movie_actor_and_role_data_from_json_files
-binding.pry
 
 5.times do
   User.create!(username: Faker::StarWars.character,
