@@ -76,3 +76,32 @@ iframe {
 .rate-e-o-active {
   float: left;
 }
+
+#movie-show {
+  padding-bottom: 1%;
+  border-bottom: 1px solid grey;
+}
+
+.shadow {
+  box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+.review-card {
+  margin: 2%;
+  padding: 2%;
+  border-radius: 7px;
+}
+
+.review-container .container {
+  padding: 2%;
+}
+
+.reviews-display {
+  padding-top: 0;
+}
+
+#rating-form * {
+  vertical-align: middle;
+  border-radius: 5px;
+  margin: 1%;
+}
