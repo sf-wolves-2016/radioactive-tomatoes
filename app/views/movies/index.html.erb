@@ -17,7 +17,7 @@
         <% @genres.each do |genre| %>
           <div class="col-sm-6 col-md-4 clickable-card">
             <%= link_to genre_path(genre) do %>
-              <div class="thumbnail gif-display">
+              <div class="thumbnail gif-display shadow">
                 <div class="gif">
                   <iframe src=<%= get_gif(genre).to_s %>></iframe>
                 </div>
