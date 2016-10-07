@@ -10,7 +10,8 @@ query.movies.each do |m|
   Movie.create!(title: response['Title'],
              synopsis: response['Plot'],
          release_date: response['Released'],
-     movie_poster_url: response['Poster']
+     movie_poster_url: response['Poster'],
+               genres: response['Genre']
   )
   actors_list = response['Actors'].split(', ')
   actors_list.each do |a|

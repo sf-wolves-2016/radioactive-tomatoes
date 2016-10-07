@@ -23,9 +23,18 @@
 <div class="jumbotron">
   <div class="container">
     <div class="jumbotron genres" style="background-color: lightblue">
-    <h1>GENRES</h1>
-    <p>...</p>
-    <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+      <div class="row">
+        <% @genres.each do |genre| %>
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail gif-display">
+              <div class="gif">
+                <iframe src=<%= get_gif(genre).to_s %>></iframe>
+              </div>
+              <h3 class="genres"><%= genre %></h3>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
