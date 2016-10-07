@@ -1,15 +1,18 @@
 <div class="jumbotron">
   <div class="container">
     <h1><%= @movie.title %></h1>
-    <%= image_tag("#{@movie.movie_poster_url}") %>
-    <h3>Synopsis</h3>
-    <p><%= @movie.synopsis %></p>
-  </div>
-  <div class="container">
-    <h3>Cast</h3>
-    <% @movie.actors.each do |actor| %>
-      <p> <%= link_to(actor.name, "/actors/#{actor.id}") %> </p>
-    <% end %>
+    <div id="movie-image">
+      <%= image_tag("#{@movie.movie_poster_url}") %>
+    </div>
+    <div id="movie-info">
+      <h3>Synopsis</h3>
+      <p><%= @movie.synopsis %></p>
+      <br>
+      <h3>Cast</h3>
+      <% @movie.actors.each do |actor| %>
+        <p> <%= link_to(actor.name, "/actors/#{actor.id}") %> </p>
+      <% end %>
+    </div>
   </div>
   <div class="container">
     <%=  %>

@@ -35,3 +35,16 @@ iframe {
   width: 20%;
   height: 20em;
 }
+
+#movie-image {
+  display: inline-block;
+}
+
+#movie-info {
+  // display: inline-block;
+  float: right;
+  width: 65%;
+  margin: 3%;
+}
+
+
