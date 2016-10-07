@@ -10,11 +10,37 @@
   width: 100%;
   text-align: center;
   margin: 2% auto 3% auto;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .clickable-card a {
   color: inherit;
   text-decoration: none;
+}
+
+// TODO(sdspikes): bootstrap snaps the images smaller when you make your browser
+// thinner -- need to account for this.  This makes the cards all the same
+// height in the biggest setting.
+.thumbnail img {
+  max-height: 30em;
+}
+
+// cut off the synopsis and add ellipses (the ellipses don't work in some
+// browsers)
+// shamelessly stolen from https://codepen.io/martinwolf/pen/qlFdp
+.caption p {
+  display: block; /* Fallback for non-webkit */
+  display: -webkit-box;
+  max-width: 400px;
+  height: 63px; /* Fallback for non-webkit */
+  margin: 0 auto;
+  font-size: 21px;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .genres {
