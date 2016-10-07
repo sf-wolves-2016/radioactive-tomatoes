@@ -8,10 +8,29 @@
   <div class="container">
     <h3>Cast</h3>
     <% @movie.actors.each do |actor| %>
-      <p> <%= link_to(actor.name, "/actors/#{actor.id}") %> </p>
+    <p> <%= link_to(actor.name, "/actors/#{actor.id}") %> </p>
     <% end %>
   </div>
   <div class="container">
     <%=  %>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+  <p>Write a review</p>
+    <div class="rating=form">
+      <%= form_for :review, url: '/reviews' do |f| %>
+      <% 5.times do %>
+        <div class="rate-e-o-active">
+          <%= image_tag("/images/radioactive-no-color.png", size: "50")%>
+          <%= f.check_box :rating %>
+        </div>
+      <% end %>
+      <%= f.text_field :title, placeholder: "title..." %>
+      <%= f.text_area :content, placeholder: "Write your review...", cols: "50", rows: "5" %>
+      <%= f.submit "Submit" %>
+      <% end %>
+    </div>
   </div>
 </div>
