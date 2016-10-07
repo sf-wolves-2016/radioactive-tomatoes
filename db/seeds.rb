@@ -92,31 +92,38 @@ def get_movie_actor_and_role_data_from_json_files
   end
 end
 
+def fake_user_review_and_comment_data
+  5.times do
+    User.create!(username: Faker::StarWars.character,
+                    email: Faker::Internet.free_email,
+                 password: "password"
+    )
+  end
+
+  10.times do
+    Review.create!( title: Faker::Book.title,
+                    content: Faker::Hipster.paragraph,
+                    upvotes: rand(1..9),
+                    downvotes: rand(1..9),
+                    rating: rand(1..5),
+                    reviewer_id: rand(1..5),
+                    reviewable_id: rand(1..10),
+                    reviewable_type: ['Actor', 'Movie'].sample
+    )
+  end
+
+  10.times do
+    Comment.create!(content: Faker::Hacker.say_something_smart,
+               commenter_id: rand(1..5),
+                  review_id: rand(1..10)
+    )
+  end
+end
+
+# Note: uncomment this guy if you want to actually call in to the API
 # fetch_data_and_cache_in_json_files
+
+# use this one if you want to get the data from the json files
 get_movie_actor_and_role_data_from_json_files
 
-5.times do
-  User.create!(username: Faker::StarWars.character,
-                  email: Faker::Internet.free_email,
-               password: "password"
-  )
-end
-
-10.times do
-  Review.create!( title: Faker::Book.title,
-                  content: Faker::Hipster.paragraph,
-                  upvotes: rand(1..9),
-                  downvotes: rand(1..9),
-                  rating: rand(1..5),
-                  reviewer_id: rand(1..5),
-                  reviewable_id: rand(1..10),
-                  reviewable_type: ['Actor', 'Movie'].sample
-  )
-end
-
-10.times do
-  Comment.create!(content: Faker::Hacker.say_something_smart,
-             commenter_id: rand(1..5),
-                review_id: rand(1..10)
-  )
-end
+fake_user_review_and_comment_data
