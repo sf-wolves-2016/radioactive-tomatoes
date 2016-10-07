@@ -1,7 +1,10 @@
+require 'themoviedb-api'
 require 'imdb'
 require 'awesome_print'
 require 'httparty'
+Tmdb::Api.key("62a053ad52b7e6cbdd773fafae4737db")
 
+img_path_list = {}
 
 query = Imdb::Top250.new
 query.movies.each do |m|
@@ -14,7 +17,33 @@ query.movies.each do |m|
   )
   actors_list = response['Actors'].split(', ')
   actors_list.each do |a|
-    Actor.create!(name: a) unless Actor.exists?(name: a)
+    
+
+
+actor_search = Tmdb::Search.person(a)
+if actor_search['results']
+  if actor_search['results'][0]
+    id = actor_search['results'][0]['id']
+  end
+end
+
+
+if id
+  img_file_name = Tmdb::Person.images(id)
+  sleep(0.26)
+    if img_file_name['profiles'] == []
+      img_path_list[a] = nil
+    elsif img_file_name['profiles'][0]
+      img_path_list[a] = img_file_name['profiles'][0]['file_path'] 
+    end
+else
+  img_path_list[a] = "https://image.tmdb.org/t/p/w300_and_h450_bestv2/a14CNByTYALAPSGlwlmfHILpEIW.jpg"
+end
+
+  
+
+headshot_url = "https://image.tmdb.org/t/p/w300_and_h450_bestv2#{img_path_list[a]}"
+    Actor.create!(name: a, headshot_url: headshot_url) unless Actor.exists?(name: a)
     Role.create!(actor: Actor.find_by(name: a),
                  movie: Movie.find_by(title: response['Title'])
     )

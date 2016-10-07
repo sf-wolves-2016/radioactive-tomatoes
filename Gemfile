@@ -31,6 +31,8 @@ gem 'awesome_print'
 gem 'imdb'
 # Use httparty for API queries
 gem 'httparty'
+# Use themoviedb-api for actor image urls
+gem 'themoviedb-api'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
