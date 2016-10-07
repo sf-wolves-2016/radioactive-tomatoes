@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   root 'movies#index'
 
+  get '/genres/:genre' => 'genres#show'
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

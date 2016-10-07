@@ -1,10 +1,14 @@
+<% genre = params[:genre] %>
+<h1 class="genre-page-header"><%= genre %> Movies</h1>
+
 <div class="jumbotron">
   <div class="container">
     <div class="jumbotron top-3-movies" style="background-color: lightblue">
       <div class="row">
-        <% @top.each do |movie| %>
+      <h3 class="genre-page-header">Top 3</h3>
+        <% genre_top_three(genre).each do |movie| %>
           <div class="col-sm-6 col-md-4 clickable-card">
-            <%= link_to movie_path(movie) do %>
+            <%= link_to movie_path(movie.id) do %>
               <div class="thumbnail">
                 <h3 class="top-movie-title"><%= movie.title %></h3>
                 <%= image_tag("#{movie.movie_poster_url}", alt: "Poster not found...") %>
@@ -22,17 +26,16 @@
 
 <div class="jumbotron">
   <div class="container">
-    <div class="jumbotron genres" style="background-color: lightblue">
+    <div class="jumbotron" style="background-color: lightblue">
       <div class="row">
-        <% @genres.each do |genre| %>
-          <div class="col-sm-6 col-md-4 clickable-card">
-            <%= link_to "/genres/#{genre}" do %>
-            <div class="thumbnail gif-display">
-              <div class="gif">
-                <iframe src=<%= get_gif(genre).to_s %>></iframe>
+        <% genre_movies(genre).each do |movie| %>
+          <div class="col-sm-6 col-sm-4 clickable-card genre-movies">
+            <%= link_to movie_path(movie.id) do %>
+              <div class="thumbnail">
+                <%= image_tag("#{movie.movie_poster_url}", alt: "Poster not found...") %>
+                <div class="caption">
+                </div>
               </div>
-              <h3 class="genres"><%= genre %></h3>
-            </div>
             <% end %>
           </div>
         <% end %>
