@@ -7,17 +7,7 @@
       <div class="row">
       <h3 class="genre-page-header">Top 3</h3>
         <% genre_top_three(genre).each do |movie| %>
-          <div class="col-sm-6 col-md-4 clickable-card">
-            <%= link_to movie_path(movie.id) do %>
-              <div class="thumbnail">
-                <h3 class="top-movie-title"><%= movie.title %></h3>
-                <%= image_tag("#{movie.movie_poster_url}", alt: "Poster not found...") %>
-                <div class="caption">
-                  <p><%= movie.synopsis %></p>
-                </div>
-              </div>
-            <% end %>
-          </div>
+          <%= render partial: "partials/top_three_movie_display", locals: { movie: movie } %>
         <% end %>
       </div>
     </div>

@@ -3,17 +3,7 @@
     <div class="jumbotron top-3-movies" style="background-color: lightblue">
       <div class="row">
         <% @top.each do |movie| %>
-          <div class="col-sm-6 col-md-4 clickable-card">
-            <%= link_to movie_path(movie) do %>
-              <div class="thumbnail">
-                <h3 class="top-movie-title"><%= movie.title %></h3>
-                <%= image_tag("#{movie.movie_poster_url}", alt: "Poster not found...") %>
-                <div class="caption">
-                  <p><%= movie.synopsis %></p>
-                </div>
-              </div>
-            <% end %>
-          </div>
+          <%= render partial: "partials/top_three_movie_display", locals: { movie: movie } %>
         <% end %>
       </div>
     </div>
@@ -27,12 +17,12 @@
         <% @genres.each do |genre| %>
           <div class="col-sm-6 col-md-4 clickable-card">
             <%= link_to "/genres/#{genre}" do %>
-            <div class="thumbnail gif-display">
-              <div class="gif">
-                <iframe src=<%= get_gif(genre).to_s %>></iframe>
+              <div class="thumbnail gif-display">
+                <div class="gif">
+                  <iframe src=<%= get_gif(genre).to_s %>></iframe>
+                </div>
+                <h3 class="genres"><%= genre %></h3>
               </div>
-              <h3 class="genres"><%= genre %></h3>
-            </div>
             <% end %>
           </div>
         <% end %>

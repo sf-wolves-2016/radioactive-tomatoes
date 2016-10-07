@@ -5,11 +5,7 @@ module MoviesHelper
   end
 
   def genre_movies(genre)
-    movies = []
-    Movie.all.each do |movie|
-      movies << movie if movie.genres.include?(genre)
-    end
-    movies
+    Movie.all.select { |movie| movie.genres.include?(genre) }
   end
 
   def genre_top_three(genre)
