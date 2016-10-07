@@ -1,12 +1,11 @@
-<% genre = params[:genre] %>
-<h1 class="genre-page-header"><%= genre %> Movies</h1>
+<h1 class="genre-page-header"><%= @genre.name %> Movies</h1>
 
 <div class="jumbotron">
   <div class="container">
     <div class="jumbotron top-3-movies" style="background-color: lightblue">
       <div class="row">
       <h3 class="genre-page-header">Top 3</h3>
-        <% genre_top_three(genre).each do |movie| %>
+        <% @top.each do |movie| %>
           <%= render partial: "partials/top_three_movie_display", locals: { movie: movie } %>
         <% end %>
       </div>
@@ -18,7 +17,7 @@
   <div class="container">
     <div class="jumbotron" style="background-color: lightblue">
       <div class="row">
-        <% genre_movies(genre).each do |movie| %>
+        <% @movies.each do |movie| %>
           <div class="col-sm-6 col-sm-4 clickable-card genre-movies">
             <%= link_to movie_path(movie.id) do %>
               <div class="thumbnail">
