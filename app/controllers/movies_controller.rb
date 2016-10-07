@@ -2,7 +2,7 @@ class MoviesController < ApplicationController
   def index
     @movies = Movie.all
     @top = Movie.top_movies
-    @genres = Movie.all_genres
+    @genres = Genre.all.map { |genre| genre.name }.sort()
   end
 
   def show

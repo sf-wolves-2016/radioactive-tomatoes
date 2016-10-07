@@ -7,12 +7,18 @@ query = Imdb::Top250.new
 query.movies.each do |m|
   response = HTTParty.get("http://www.omdbapi.com/?i=tt#{m.id}&plot=short&r=json")
   next if Movie.exists?(title: response['Title'])
-  Movie.create!(title: response['Title'],
+  movie_id = Movie.create!(title: response['Title'],
              synopsis: response['Plot'],
          release_date: response['Released'],
-     movie_poster_url: response['Poster'],
-               genres: response['Genre']
-  )
+     movie_poster_url: response['Poster']
+  ).id
+
+  genres_list = response['Genre'].split(", ")
+  genres_list.each do |g|
+    genre_id = Genre.find_or_create_by(name: g).id
+    GenresMovie.create(movie_id: movie_id, genre_id: genre_id)
+  end
+
   actors_list = response['Actors'].split(', ')
   actors_list.each do |a|
     Actor.create!(name: a) unless Actor.exists?(name: a)
