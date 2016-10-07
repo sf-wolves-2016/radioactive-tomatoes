@@ -60,6 +60,7 @@ iframe {
 .genre-movies {
   width: 20%;
   height: 20em;
+  margin-bottom: 1em;
 }
 
 #movie-image {
@@ -67,7 +68,6 @@ iframe {
 }
 
 #movie-info {
-  // display: inline-block;
   float: right;
   width: 65%;
   margin: 3%;
