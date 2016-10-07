@@ -20,7 +20,7 @@
         <% @movies.each do |movie| %>
           <div class="col-sm-6 col-sm-4 clickable-card genre-movies">
             <%= link_to movie_path(movie.id) do %>
-              <div class="thumbnail">
+              <div class="thumbnail shadow">
                 <%= image_tag("#{movie.movie_poster_url}", alt: "Poster not found...") %>
                 <div class="caption">
                 </div>

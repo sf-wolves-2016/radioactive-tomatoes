@@ -1,26 +1,26 @@
 <div class="jumbotron">
 
-  <div class="container">
+  <div class="container" id="movie-show">
     <h1><%= @movie.title %></h1>
-    <%= image_tag("#{@movie.movie_poster_url}") %>
-    <h3>Synopsis</h3>
-    <p><%= @movie.synopsis %></p>
-  </div>
-
-  <div class="container">
-    <h3>Cast</h3>
-    <% @movie.actors.each do |actor| %>
-    <p> <%= link_to(actor.name, "/actors/#{actor.id}") %> </p>
-    <% end %>
-  </div>
-
+    <div id="movie-image">
+      <%= image_tag("#{@movie.movie_poster_url}") %>
+    </div>
+    <div id="movie-info">
+      <h3>Synopsis</h3>
+      <p><%= @movie.synopsis %></p>
+      <br>
+      <h3>Cast</h3>
+      <% @movie.actors.each do |actor| %>
+        <p> <%= link_to(actor.name, "/actors/#{actor.id}") %> </p>
+      <% end %>
+    </div>
 </div>
 
-<div class="jumbotron">
-  <div class="container">
+<div class="jumbotron review-container">
+  <div class="container shadow">
   <p>Write a review</p>
     <div class="rating=form">
-      <%= form_for :review, url: '/reviews' do |f| %>
+      <%= form_for :review, url: '/reviews', html: {id: "rating-form"} do |f| %>
       <% i = 1 %>
       <% 5.times do %>
         <div class="rate-e-o-active">
@@ -39,11 +39,11 @@
   </div>
 </div>
 
-<div class="jumbotron">
+<div class="jumbotron reviews-display">
 
-  <div class="container reviews">
+  <div class="container reviews shadow">
     <% @movie.reviews.each do |review| %>
-    <div class="review-card">
+    <div class="review-card shadow">
       <h4><%= review.title %>
       <%= render partial: "/partials/five_star_rating", locals: { rating: review.rating, size: "20"} %>
       </h4>
