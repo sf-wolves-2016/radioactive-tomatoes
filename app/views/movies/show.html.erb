@@ -17,40 +17,6 @@
 </div>
 
 <div class="jumbotron">
-
-  <div class="container rating-and-review">
-    <div class="new-rating-form">
-      <p>Add a new review</p>
-      <%= render partial: "/partials/five_star_rating", locals: {rating: @movie.avg_rating, size: "50"} %>
-      <%= form_for :review, url: '/reviews' do |f| %>
-      <% 5.times do %>
-        <%= f.check_box(:rating) %>
-      <% end %>
-      <%= f.text_field :title, placeholder: "Review title..." %>
-      <%= f.text_area :content, placeholder: "Enter your review here", cols: "50", rows: "5" %>
-      <%= f.submit "Submit" %>
-      <% end %>
-    </div>
-  </div>
-
-</div>
-
-<div class="jumbotron">
-
-  <div class="container reviews">
-    <% @movie.reviews.each do |review| %>
-    <div class="review-card">
-      <h4><%= review.title %>
-      <%= render partial: "/partials/five_star_rating", locals: { rating: review.rating, size: "20"} %>
-      </h4>
-      <p><%= review.content %></p>
-    </div>
-    <% end %>
-  </div>
-
-</div>
-
-<div class="jumbotron">
   <div class="container">
   <p>Write a review</p>
     <div class="rating=form">
@@ -67,4 +33,19 @@
       <% end %>
     </div>
   </div>
+</div>
+
+<div class="jumbotron">
+
+  <div class="container reviews">
+    <% @movie.reviews.each do |review| %>
+    <div class="review-card">
+      <h4><%= review.title %>
+      <%= render partial: "/partials/five_star_rating", locals: { rating: review.rating, size: "20"} %>
+      </h4>
+      <p><%= review.content %></p>
+    </div>
+    <% end %>
+  </div>
+
 </div>
