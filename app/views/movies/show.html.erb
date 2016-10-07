@@ -18,24 +18,7 @@
 
 <div class="jumbotron review-container">
   <div class="container shadow">
-  <p>Write a review</p>
-    <div class="rating=form">
-      <%= form_for :review, url: '/reviews', html: {id: "rating-form"} do |f| %>
-      <% i = 1 %>
-      <% 5.times do %>
-        <div class="rate-e-o-active">
-          <%= image_tag("/images/radioactive-no-color.png", size: "50")%>
-          <%= f.radio_button :rating, "#{i}" %>
-        </div>
-      <% i += 1 %>
-      <% end %>
-      <%= f.text_field :title, placeholder: "title..." %>
-      <%= f.text_area :content, placeholder: "Write your review...", cols: "50", rows: "5" %>
-      <input type="hidden" name="review[reviewable_id]" value=<%= @movie.id %>>
-      <input type="hidden" name="review[reviewable_type]" value="Movie">
-      <%= f.submit "Submit" %>
-      <% end %>
-    </div>
+    <%= render partial: "/partials/review_form", locals: {reviewable: @movie } %>
   </div>
 </div>
 
