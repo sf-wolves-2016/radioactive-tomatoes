@@ -31,6 +31,8 @@
       <% end %>
       <%= f.text_field :title, placeholder: "title..." %>
       <%= f.text_area :content, placeholder: "Write your review...", cols: "50", rows: "5" %>
+      <input type="hidden" name="review[reviewable_id]" value=<%= @movie.id %>>
+      <input type="hidden" name="review[reviewable_type]" value="Movie">
       <%= f.submit "Submit" %>
       <% end %>
     </div>
