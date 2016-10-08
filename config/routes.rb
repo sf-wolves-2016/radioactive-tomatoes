@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   resources :genres, only: [:show]
 
+  resources :actors, only: [:show]
+
   root 'movies#index'
 
   get '/login' => 'sessions#new'

@@ -1,31 +1,23 @@
 <div class="jumbotron">
 
   <div class="container" id="movie-show">
-    <h1><%= @movie.title %></h1>
+    <h1><%= @actor.name %></h1>
     <div id="movie-image">
-      <%= image_tag("#{@movie.movie_poster_url}") %>
+      <%= image_tag("#{@actor.headshot_url}") %>
     </div>
-    <div id="movie-info">
-      <h3>Synopsis</h3>
-      <p><%= @movie.synopsis %></p>
-      <br>
-      <h3>Cast</h3>
-      <% @movie.actors.each do |actor| %>
-        <p> <%= link_to(actor.name, "/actors/#{actor.id}") %> </p>
-      <% end %>
-    </div>
+
 </div>
 
 <div class="jumbotron review-container">
   <div class="container shadow">
-    <%= render partial: "/partials/review_form", locals: {reviewable: @movie } %>
+    <%= render partial: "/partials/review_form", locals: {reviewable: @actor } %>
   </div>
 </div>
 
 <div class="jumbotron reviews-display">
 
   <div class="container reviews shadow">
-    <% @movie.reviews.each do |review| %>
+    <% @actor.reviews.each do |review| %>
     <div class="review-card shadow">
       <h4><%= review.title %>
       <%= render partial: "/partials/five_star_rating", locals: { rating: review.rating, size: "20"} %>

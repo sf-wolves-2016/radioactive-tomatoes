@@ -10,6 +10,7 @@ class ReviewsController < ApplicationController
     if current_user
       @review = Review.create(review_params)
       if @review.save
+        p @review
         redirect_to "/#{@review.reviewable_type.downcase}s/#{@review.reviewable_id}"
       end
     else
