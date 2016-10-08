@@ -1,0 +1,30 @@
+<div class="jumbotron">
+
+  <div class="container" id="movie-show">
+    <h1><%= @actor.name %></h1>
+    <div id="movie-image">
+      <%= image_tag("#{@actor.headshot_url}") %>
+    </div>
+
+</div>
+
+<div class="jumbotron review-container">
+  <div class="container shadow">
+    <%= render partial: "/partials/review_form", locals: {reviewable: @actor } %>
+  </div>
+</div>
+
+<div class="jumbotron reviews-display">
+
+  <div class="container reviews shadow">
+    <% @actor.reviews.each do |review| %>
+    <div class="review-card shadow">
+      <h4><%= review.title %>
+      <%= render partial: "/partials/five_star_rating", locals: { rating: review.rating, size: "20"} %>
+      </h4>
+      <p><%= review.content %></p>
+    </div>
+    <% end %>
+  </div>
+
+</div>
