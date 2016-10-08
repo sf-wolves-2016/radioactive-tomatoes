@@ -79,7 +79,8 @@ iframe {
 
 #movie-show {
   padding-bottom: 1%;
-  border-bottom: 1px solid grey;
+  background-color: #5BBE9E;
+  border-radius: 6px;
 }
 
 .shadow {
@@ -90,18 +91,83 @@ iframe {
   margin: 2%;
   padding: 2%;
   border-radius: 7px;
+  background-color: #CF215C;
 }
 
 .review-container .container {
   padding: 2%;
+  background-color: #5BBE9E;
+  border-radius: 6px;
 }
 
 .reviews-display {
   padding-top: 0;
 }
 
+.reviews-display .reviews {
+  background-color: #86002D;
+  border-radius: 6px;
+}
+
 #rating-form * {
-  vertical-align: middle;
   border-radius: 5px;
+}
+
+#rating-form input[type="text"] {
+  float: right;
   margin: 1%;
+  width: 60%;
+}
+
+#rating-form textarea {
+  float: right;
+  margin: 0 1%;
+  width: 60%;
+  height: 50%;
+}
+
+#rating-form input[type="submit"] {
+  float: left;
+  margin-top: 5%;
+  width: 30%;
+}
+
+.poster-only img {
+  width: 100%;
+}
+
+body {
+  background-color: #097F58;
+}
+
+.jumbotron {
+  background-color: #199C71;
+}
+
+.top-3-movies {
+  background-color: #86002D;
+}
+
+.genres {
+  background-color: #86002D;
+}
+
+.navbar .container-fluid {
+  background-color: #D3E624;
+}
+
+.thumbnail {
+  background-color: #5BBE9E;
+}
+
+.thumbnail h3 {
+  color: #5BBE9E;
+}
+
+.top-3-movies .thumbnail {
+  background-color: #E4F44E;
+}
+
+.poster-container {
+  background-color: #6E0025;
 }
