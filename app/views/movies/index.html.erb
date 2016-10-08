@@ -1,6 +1,6 @@
 <div class="jumbotron">
   <div class="container">
-    <div class="jumbotron top-3-movies" style="background-color: lightblue">
+    <div class="jumbotron top-3-movies">
       <div class="row">
         <% @top.each do |movie| %>
           <%= render partial: "partials/top_three_movie_display", locals: { movie: movie } %>
@@ -12,7 +12,7 @@
 
 <div class="jumbotron">
   <div class="container">
-    <div class="jumbotron genres" style="background-color: lightblue">
+    <div class="jumbotron genres">
       <div class="row">
         <% @genres.each do |genre| %>
           <div class="col-sm-6 col-md-4 clickable-card">
