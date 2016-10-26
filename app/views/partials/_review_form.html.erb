@@ -13,6 +13,6 @@
   <%= f.text_area :content, placeholder: "Write your review...", cols: "50", rows: "5" %>
   <input type="hidden" name="review[reviewable_id]" value=<%= reviewable.id %>>
   <input type="hidden" name="review[reviewable_type]" value=<%= reviewable.class %>>
-  <%= f.submit "Submit" %>
+  <%= f.submit "Submit", class: "btn-lg" %>
   <% end %>
 </div>
